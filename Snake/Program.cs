@@ -31,7 +31,6 @@ namespace Snake
                 if(walls.IsHit(snake) || snake.IsHitTail())
                 {
                     GameOver();
-                    Console.ReadKey();
                     break;
                 }
                 if(snake.Eat(food))
