@@ -28,12 +28,13 @@ namespace Snake
 
             while (true)
             {
-                if(walls.IsHit(snake) || snake.IsHitTail())
+                EatCountPrint();
+                if (walls.IsHit(snake) || snake.IsHitTail())
                 {
                     GameOver();
                     break;
                 }
-                if(snake.Eat(food))
+                if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
@@ -55,6 +56,12 @@ namespace Snake
             Console.SetCursorPosition(36, 10);
             Console.Write("GameOver");
             Console.ReadKey();
+        }
+
+        private static void EatCountPrint()
+        {
+            Console.SetCursorPosition(2, 1);
+            Console.Write($"count:{Snake.FoodCount}");
         }
     }
 }
